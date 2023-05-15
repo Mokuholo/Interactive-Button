@@ -1,0 +1,72 @@
+
+
+
+
+
+
+
+button {
+    font: inherit;
+    padding: 0.75em 35em;
+    background: hsl(185, 53%, 15%);
+    border: 0.1em solid hsl(185, 53%, 34%);
+    border-radius: 100vw;
+    cursor: pointer;
+    transition: background-color 250ms;
+
+    isolation: isolate;
+    position: relative;
+    overflow: hidden;
+}
+
+
+button:hover
+button:focus-visible {
+    background: hsl(185, 53%, 34%);
+}
+
+button > span {
+    position: absolute;
+    z-index: -1;
+    background: orangered;
+    width: 33.333%;
+    height: 100%;
+}
+
+button > :first-child{
+    left: 0;
+    top: 0;
+}
+
+button > :last-child{
+    right: 0;
+    top: 0;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    z-index: inherit;
+    background: hsl(200, 60%, 20%);
+    background: hotpink;
+    width: 10%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    inset: 0;
+    margin: auto;
+
+    transition: transform 500ms;
+}
+
+button:active::before{
+    transform: scale(15);
+
+}
+
+button:has(:first-child:active)::before {
+    margin-left: 0;
+}
+
+button:has(:first-child:active)::before {
+    margin-right: 0;
+}
